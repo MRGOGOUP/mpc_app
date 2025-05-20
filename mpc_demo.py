@@ -7,9 +7,8 @@ import cvxpy as cp
 import platform
 
 # ✅ 한글 폰트 설정 (Windows 11 기준)
-matplotlib.rc( 'font', family = 'Malgun Gothic')
-#matplotlib.rcParams['font.family'] = 'Malgun Gothic'
-#matplotlib.rcParams['axes.unicode_minus'] = False
+matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 📋 Streamlit UI 설정
 st.set_page_config(page_title="APC 시뮬레이션 (DCS 기반)", layout="centered")
