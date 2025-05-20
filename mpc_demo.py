@@ -6,7 +6,7 @@ import cvxpy as cp
 import platform
 
 # ✅ 한글 폰트 설정 (Windows 11 기준)
-matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+matplotlib.rcParams['font.family'] = 'NanumGothic'
 matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 📋 Streamlit UI 설정
