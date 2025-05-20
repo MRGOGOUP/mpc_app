@@ -6,15 +6,9 @@ import streamlit as st
 import cvxpy as cp
 import platform
 
-# 📌 프로젝트에 포함된 TTF 파일 직접 경로 지정
-font_path = "./fonts/NanumGothic.ttf"  # 상대경로
-font_prop = fm.FontProperties(fname=font_path)
-matplotlib.rcParams['font.family'] = font_prop.get_name()
-matplotlib.rcParams['axes.unicode_minus'] = False
-
 # ✅ 한글 폰트 설정 (Windows 11 기준)
-#matplotlib.rcParams['font.family'] = 'NanumGothic'
-#matplotlib.rcParams['axes.unicode_minus'] = False
+matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 📋 Streamlit UI 설정
 st.set_page_config(page_title="APC 시뮬레이션 (DCS 기반)", layout="centered")
