@@ -5,15 +5,8 @@ import streamlit as st
 import cvxpy as cp
 import platform
 
-# 📌 한글 폰트 자동 탐색 및 설정
-font_paths = [f.fname for f in fm.fontManager.ttflist if 'NanumGothic' in f.name]
-if font_paths:
-    nanum_font_path = font_paths[0]
-    nanum_font = fm.FontProperties(fname=nanum_font_path).get_name()
-    matplotlib.rcParams['font.family'] = nanum_font
-else:
-    matplotlib.rcParams['font.family'] = 'sans-serif'
-
+# ✅ 한글 폰트 설정 (Windows 11 기준)
+matplotlib.rcParams['font.family'] = 'NanumGothic'
 matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 📋 Streamlit UI 설정
