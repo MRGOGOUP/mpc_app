@@ -1,12 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import matplotlib
 import streamlit as st
 import cvxpy as cp
 import platform
 
-# ✅ 한글 폰트 설정 (Windows 11 기준)
-matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+# ✅ 프로젝트에 포함된 TTF 경로 직접 지정
+font_path = "./fonts/NanumGothic.ttf"
+font_prop = fm.FontProperties(fname=font_path)
+matplotlib.rcParams['font.family'] = font_prop.get_name()
 matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 📋 Streamlit UI 설정
