@@ -9,12 +9,16 @@ import platform
 # ✅ 프로젝트에 포함된 TTF 경로 직접 지정
 font_path = "./fonts/NanumGothic.ttf"
 font_prop = fm.FontProperties(fname=font_path)
+font_name = font_prop.get_name()
 matplotlib.rcParams['font.family'] = font_prop.get_name()
 matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 📋 Streamlit UI 설정
 st.set_page_config(page_title="APC 시뮬레이션 (DCS 기반)", layout="centered")
 st.title("🏭 DCS + APC 시뮬레이션 데모")
+
+# 👉 스트림릿 화면에 적용된 폰트 확인
+st.info(f"✅ 적용된 폰트 이름: `{font_name}`")
 
 st.markdown("""
 이 시뮬레이션은 **비철금속 공장의 DCS 제어 환경**을 가정하고,  
