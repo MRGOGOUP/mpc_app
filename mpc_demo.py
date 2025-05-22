@@ -18,7 +18,7 @@ st.set_page_config(page_title="APC 시뮬레이션 (DCS 기반)", layout="center
 st.title("🏭 DCS + APC 시뮬레이션 데모")
 
 # 👉 스트림릿 화면에 적용된 폰트 확인
-st.info(f"✅ 적용된 폰트 이름: `{font_name}`")
+#st.info(f"✅ 적용된 폰트 이름: `{font_name}`")
 
 st.markdown("""
 이 시뮬레이션은 **비철금속 공장의 DCS 제어 환경**을 가정하고,  
@@ -116,7 +116,7 @@ with st.expander("📊 DCS + APC 제어 루프 시각화"):
 # 📘 제어 도식 추가
 with st.expander("🧩 DCS 위에 APC(MPC) 제어가 덧붙는 구조 보기 (도식 포함)"):
     st.markdown("공정 예측 기반의 상위 제어기(APC/MPC)가 DCS의 PID 루프 위에 덧붙는 구조를 시각화한 도식입니다.")
-    #st.image("img_dcs_apc_control.png", caption="DCS + APC 제어 루프 구성도")
+    st.image("./image/apc_demo_image.png", caption="DCS + APC 제어 루프 구성도")
 
 
 # 📘 설명 추가
