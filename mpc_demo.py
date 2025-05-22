@@ -227,7 +227,7 @@ ax1.plot(time, y_history, label="공정 출력값 (PV)")
 ax1.plot(time, [setpoint]*len(time), 'r--', label="목표값 (Setpoint)")
 ax1.axhline(y_min, color='gray', linestyle='--', linewidth=1, label="출력 제약")
 ax1.axhline(y_max, color='gray', linestyle='--', linewidth=1)
-ax1.set_ylabel("출력값 (예: 온도)")
+ax1.set_ylabel("출력값 (예: 온도)", fontproperties=font_prop)
 ax1.grid(True)
 ax1.legend()
 
