@@ -223,17 +223,17 @@ fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 5))
 time = np.arange(horizon + 1)
 
 # 출력값 그래프
-ax1.plot(time, y_history, label="공정 출력값 (PV)", fontproperties=font_prop)
-ax1.plot(time, [setpoint]*len(time), 'r--', label="목표값 (Setpoint)", fontproperties=font_prop)
-ax1.axhline(y_min, color='gray', linestyle='--', linewidth=1, label="출력 제약", fontproperties=font_prop)
+ax1.plot(time, y_history, label="공정 출력값 (PV)")
+ax1.plot(time, [setpoint]*len(time), 'r--', label="목표값 (Setpoint)")
+ax1.axhline(y_min, color='gray', linestyle='--', linewidth=1, label="출력 제약")
 ax1.axhline(y_max, color='gray', linestyle='--', linewidth=1)
 ax1.set_ylabel("출력값 (예: 온도)", fontproperties=font_prop)
 ax1.grid(True)
 ax1.legend()
 
 # 제어입력 그래프
-ax2.step(np.arange(horizon), u_history, label="제어 입력 (MV)", fontproperties=font_prop)
-ax2.axhline(u_min, color='gray', linestyle='--', linewidth=1, label="입력 제약", fontproperties=font_prop)
+ax2.step(np.arange(horizon), u_history, label="제어 입력 (MV)")
+ax2.axhline(u_min, color='gray', linestyle='--', linewidth=1, label="입력 제약")
 ax2.axhline(u_max, color='gray', linestyle='--', linewidth=1)
 ax2.set_xlabel("시간", fontproperties=font_prop)
 ax2.set_ylabel("입력값", fontproperties=font_prop)
