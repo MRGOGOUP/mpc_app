@@ -229,7 +229,7 @@ ax1.axhline(y_min, color='gray', linestyle='--', linewidth=1, label="출력 제�
 ax1.axhline(y_max, color='gray', linestyle='--', linewidth=1)
 ax1.set_ylabel("출력값 (예: 온도)", fontproperties=font_prop)
 ax1.grid(True)
-ax1.legend()
+ax1.legend(prop=font_prop)
 
 # 제어입력 그래프
 ax2.step(np.arange(horizon), u_history, label="제어 입력 (MV)")
@@ -238,7 +238,7 @@ ax2.axhline(u_max, color='gray', linestyle='--', linewidth=1)
 ax2.set_xlabel("시간", fontproperties=font_prop)
 ax2.set_ylabel("입력값", fontproperties=font_prop)
 ax2.grid(True)
-ax2.legend()
+ax2.legend(prop=font_prop)
 
 plt.tight_layout()
 st.pyplot(fig)
