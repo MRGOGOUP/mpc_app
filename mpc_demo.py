@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
 import matplotlib
 import streamlit as st
 import cvxpy as cp
@@ -35,6 +34,83 @@ $$
 APC는 미래의 공정 동작을 **모델로 예측**하고,  
 해당 예측값들이 목표값에 가장 가까워지도록 **최적의 제어 입력 시퀀스**를 계산합니다.
 """, unsafe_allow_html=True)
+
+import streamlit.components.v1 as components
+with st.expander("📊 DCS + APC 제어 루프 시각화"):
+    st.markdown("전해조 온도 제어 루프를 기준으로 DCS와 APC의 흐름을 시각화한 구조입니다.")
+    
+    html_code = """
+    <style>
+      .box { border: 2px solid #007acc; border-radius: 10px; padding: 15px; background-color: white; margin-bottom: 20px; }
+      .flow-chart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .flow-item {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #e0f0ff;
+        font-weight: bold;
+      }
+      .arrow {
+        font-size: 20px;
+        color: #666;
+      }
+      .row-flow {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+      }
+      .side-box {
+        border: 1px dashed #aaa;
+        padding: 8px 12px;
+        background-color: #f0f0f0;
+        font-size: 13px;
+        border-radius: 6px;
+      }
+    </style>
+
+    <div class="box">
+      <div class="flow-chart">
+
+        <div class="flow-item">전해조 온도 센서 (PV)</div>
+        <div class="arrow">↓</div>
+
+        <div class="flow-item">PID 제어기 (DCS 내부)</div>
+        <div class="side-box">목표값(Setpoint)을 기준으로 오차 계산<br>1~2초 주기 제어</div>
+        <div class="arrow">↓</div>
+
+        <div class="flow-item">스팀 밸브 (MV)</div>
+        <div class="arrow">↓</div>
+
+        <div class="flow-item">전해조 반응 → 온도 변화</div>
+        <div class="arrow">↓</div>
+
+        <div class="flow-item">온도 센서가 다시 측정</div>
+        <div class="arrow">↑ (루프 반복)</div>
+
+        <div class="row-flow">
+          <div class="arrow">⇦</div>
+          <div class="flow-item">APC (MPC)</div>
+          <div class="arrow">⇨</div>
+        </div>
+        <div class="side-box">5~10분 간격으로 Setpoint 예측 조정<br>외란, 품질, 모델 기반 예측 포함</div>
+
+      </div>
+    </div>
+    """
+
+    components.html(html_code, height=750, scrolling=False)
+
+# 📘 제어 도식 추가
+with st.expander("🧩 DCS 위에 APC(MPC) 제어가 덧붙는 구조 보기 (도식 포함)"):
+    st.markdown("공정 예측 기반의 상위 제어기(APC/MPC)가 DCS의 PID 루프 위에 덧붙는 구조를 시각화한 도식입니다.")
+    #st.image("img_dcs_apc_control.png", caption="DCS + APC 제어 루프 구성도")
+
 
 # 📘 설명 추가
 with st.expander("📖 APC 제어 방식 설명"):
@@ -171,6 +247,4 @@ result_df = pd.DataFrame({
 
 st.subheader("📋 입력값(MV) 및 출력값(PV) 요약")
 st.dataframe(result_df.style.format(precision=3), use_container_width=True)
-
-
 
